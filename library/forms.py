@@ -1,6 +1,6 @@
 from django import forms
 from library import models
-
+from django.core.validators import RegexValidator
 from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm, UserChangeForm
 from django.contrib.auth import  get_user_model
 from django.shortcuts import get_object_or_404
@@ -10,12 +10,15 @@ class SaveUser(UserCreationForm):
     email = forms.EmailField(max_length=250,help_text="The Email field is required.")
     first_name = forms.CharField(max_length=250,help_text="The First Name field is required.")
     last_name = forms.CharField(max_length=250,help_text="The Last Name field is required.")
+    phone_number = forms.CharField(
+        max_length=13,
+    )
     password1 = forms.CharField(max_length=250)
     password2 = forms.CharField(max_length=250)
 
     class Meta:
         model = User
-        fields = ('email', 'username','first_name', 'last_name','password1', 'password2',)
+        fields = ('email', 'username','first_name','phone_number', 'last_name','password1', 'password2',)
 
     
 

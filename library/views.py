@@ -24,35 +24,37 @@ def context_data(request):
     return context
 
 def userregister(request):
-    context = context(request)
+    context = context_data(request)
     context['topbar'] = False
     context['footer'] = False
     context['page_title']  = "User Registration"
 
     if request.user.is_authenticated:
         return redirect("home-page")
-    return render(request,'register.html','context')
+    return render(request,'register.html',context)
 
 def save_register(request):
-    resp = {
-        'status':'failed',
-        'msg':''
-    }
+    resp={'status':'failed', 'msg':''}
     if not request.method == 'POST':
         resp['msg'] = "No data has been sent on this request"
     else:
         form = forms.SaveUser(request.POST)
         if form.is_valid():
             form.save()
-            messages.success(request,"Your Account has been created seccesfully.")
+            username = request.POST['username']
+            password = request.POST['password1']
+            user = authenticate(username = username,password=password)
+            login(request,user)
+            redirect('home-page')
             resp['status'] = 'success'
         else:
             for field in form:
                 for error in field.errors:
                     if resp['msg'] != '':
-                        resp['msg'] += str('<br/>')
+                        resp['msg'] += str('<br />')
                     resp['msg'] += str(f"[{field.name}] {error}.")
-    return HttpResponse(json.dumps(resp),content_type = "application/json")
+    
+    return HttpResponse(json.dumps(resp), content_type="application/json")
 
 @login_required
 def update_profile(request):
@@ -198,7 +200,6 @@ def save_user(request):
         resp['msg'] = "There's no data sent on the request"
 
     return JsonResponse(resp)
-@login_required
 @login_required
 def manage_user(request, pk=None):
     context = context_data(request)

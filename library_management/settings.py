@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-ulj4#fa)p%h)utvw&#=52v8q#m_%r#f#nk!ad$c@phdz)i(z6i
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['digital-lib-f455cebba397.herokuapp.com']
+ALLOWED_HOSTS = ['digital-lib-f455cebba397.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -135,7 +135,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 LOGIN_REDIRECT_URL = '/'
-LOGIN_URL = '/login'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 

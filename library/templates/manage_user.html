@@ -16,6 +16,10 @@
             <input type="text" class="form-control rounded-0" name="username" id="username" value="{% if form.data.username %}{{ form.data.username }}{% else %}{{ user.username }}{% endif %}" required="required">
         </div>
         <div class="form-group mb-3">
+            <label for="phone_number" class="control-label">Phone Number</label>
+            <input type="text" class="form-control rounded-0" name="phone_number" id="phone_number" pattern="^\+\d{2} \d{3} \d{3} \d{4}$" title="Phone number must be in the format +01 999 999 9999" required="required">
+        </div>
+        <div class="form-group mb-3">
             <label for="email" class="control-label">Email</label>
             <input type="email" class="form-control rounded-0" name="email" id="email" value="{% if form.data.email %}{{ form.data.email }}{% else %}{{ user.email }}{% endif %}" required="required">
         </div>
