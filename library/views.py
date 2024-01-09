@@ -532,17 +532,7 @@ def view_student(request, pk = None):
     
     return render(request, 'view_student.html', context)
 
-@login_required
-def manage_student(request, pk = None):
-    context = context_data(request)
-    context['page'] = 'manage_student'
-    context['page_title'] = 'Manage Student'
-    if pk is None:
-        context['student'] = {}
-    else:
-        context['student'] = models.Students.objects.get(id=pk)
-    context['sub_categories'] = models.SubCategory.objects.filter(delete_flag = 0, status = 1).all()
-    return render(request, 'manage_student.html', context)
+
 
 @login_required
 def delete_student(request,pk = None):
