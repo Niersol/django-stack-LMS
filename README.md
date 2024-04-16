@@ -53,8 +53,7 @@ This project is a comprehensive Library Management System developed using Django
   - DataTables
 
 - **Database:**
-  - SQLite (for development)
-  - Consider upgrading to a more robust database for production use.
+  - PostgreSql
 
 ## Setup Instructions
 
