@@ -89,9 +89,6 @@ This project is a comprehensive Library Management System developed using Django
 6. **Access the Application:**
    Open your web browser and go to [http://localhost:8000/](http://localhost:8000/)
 
-## Contributing
-
-If you'd like to contribute to the project, please follow the [contribution guidelines](CONTRIBUTING.md).
 
 ## License
 
@@ -103,4 +100,3 @@ This project is licensed under the [MIT License](LICENSE).
 - DataTables, jQuery, and Bootstrap for enhancing the frontend experience.
 - The open-source community for continuous support and improvement.
 
-Feel free to explore, contribute, and use this Library Management System for your needs. If you encounter any issues or have suggestions, please open an [issue](https://github.com/your-username/library-management-system/issues). Thank you for using and contributing to this project!
